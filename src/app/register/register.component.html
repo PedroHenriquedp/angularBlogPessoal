@@ -8,11 +8,11 @@
           <h1 class="text-center">Cadastro</h1>
           <div class="form-group">
             <label for="nome">Nome</label>
-            <input class="form-control" type="text" name="nome" id="nome" placeholder="José Maria">
+            <input [(ngModel)]='user.nome'  class="form-control" type="text" name="nome" id="nome" placeholder="José Maria">
           </div>
           <div class="form-group">
             <label for="usuario">Usuário</label>
-            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="JoseM123">
+            <input [(ngModel)]='user.usuario' class="form-control" type="text" name="usuario" id="usuario" placeholder="JoseM123">
           </div>
           <div class="form-group">
             <label for="foto"> Link da foto</label>
@@ -20,15 +20,15 @@
           </div>
           <div class="form-group">
             <label for="senha"> Senha</label>
-            <input class="form-control" type="text" name="senha" id="senha" placeholder="BatatinhaJaponesa123">
+            <input (input)="confirmSenha($event)" [(ngModel)]='user.foto' class="form-control" type="text" name="senha" id="senha" placeholder="BatatinhaJaponesa123">
           </div>
           <div class="form-group">
             <label for="confirmarSenha"> Confirmar senha</label>
-            <input class="form-control" type="text" name="confirmarSenha" id="confirmarSenha" placeholder="BatatinhaJaponesa123">
+            <input [(ngModel)]='user.senha' class="form-control" type="text" name="confirmarSenha" id="confirmarSenha" placeholder="BatatinhaJaponesa123">
           </div>
           <div class="form-group">
             <label for="tipo">Tipo de Usuário</label>
-            <select class="form-control" name="tipo" id="tipo">
+            <select class="form-control" name="tipo" id="tipo" (change)="tipoUser($event)">
               <option>Selecione o tipo de usuário:</option>
               <option value="normal">Normal</option>
               <option value="adm">Administrador</option>
@@ -75,7 +75,7 @@
                 </filter>
               </defs>
             </svg>
-            <button id="gooey-button-cadastrar">
+            <button id="gooey-button-cadastrar" (click)="cadastrar()" >
               Cadastrar
               <span class="bubbles">
                 <span class="bubble"></span>
